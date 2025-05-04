@@ -4,6 +4,7 @@ import Navbar from './Cards/Navbar'
 import Home from './Cards/Home'
 import Products from './Cards/Products'
 import Cart from './Cards/Cart'
+import { SingleProduct } from './Cards/SinglePage'
 
 
  
@@ -11,10 +12,12 @@ import Cart from './Cards/Cart'
    return (
      <>
        <Navbar/>
-       <Routes>
+        <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/Home" element={<Home/>}></Route>
         <Route path="/Products" element={<Products/>}></Route>
         <Route path="/Cart" element={<Cart/>}></Route>
+        <Route path="/Products/:id" element={<SingleProduct/>}/>
        </Routes>
      </>
    )
