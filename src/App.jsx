@@ -17,7 +17,7 @@ import { SingleProduct } from './Cards/SinglePage'
         <Route path="/Home" element={<Home/>}></Route>
         <Route path="/Products" element={<Products/>}></Route>
         <Route path="/Cart" element={<Cart/>}></Route>
-        <Route path="/Products/:id" element={<SingleProduct/>}/>
+        <Route path="/Products/:id" element={<SingleProduct/>}></Route>
        </Routes>
      </>
    )
