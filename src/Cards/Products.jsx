@@ -15,6 +15,17 @@ const Products = () => {
     fetchdata();
   }, []);
 
+  const handleAddToCart = (item) => {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const exists = cart.find((i)=>i.id === item.id);
+  if(!exists){
+    cart.push({...item,quantity:1});
+    localStorage.setItem("cart",JSON.stringify(cart));
+  }else{
+    alert("item already exist in the cart")
+  }
+};
   return (
     <div className="product-container">
       {data.map((item) => (
@@ -26,7 +37,7 @@ const Products = () => {
           <p className="product-price">Price: ${item.price}</p>
           <p className="product-rating">Rating: {item.rating?.rate ?? 'N/A'}</p>
           <div className='Product_button'>
-            <button>Add to cart</button>
+            <button onClick={()=>handleAddToCart(item)}>Add to cart</button>
             <Link to={`/Products/${item.id}`}><button>Details</button></Link>
           </div>
         </div>
